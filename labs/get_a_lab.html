@@ -108,11 +108,11 @@ table th, table td {
     <div class="container">
       <h1>Labs API</h1>
 
-        <p class="explanation">Create and retrieve state information on labs</p>
+        <p class="explanation">Create and retrieve state information on lab_instances</p>
 
       <div class="article">
         <h2>Get a lab</h2>
-        <h3>GET api/v1/labs/:api_name</h3>
+        <h3>GET api/v1/lab_instances/:id</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -124,11 +124,11 @@ table th, table td {
             </thead>
             <tbody>
               <tr>
-                <td>
-                    <span class="name">api_name</span>
+                <td class="required">
+                    <span class="name">id</span>
                 </td>
                 <td>
-                  <span class="description">The api_name of the lab</span>
+                  <span class="description">The id of the lab_instance</span>
                 </td>
               </tr>
             </tbody>
@@ -144,7 +144,7 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET api/v1/labs/%3Aapi_name</pre>
+          <pre class="request route highlight">GET api/v1/lab_instances/580</pre>
 
 
 
@@ -152,19 +152,57 @@ Cookie: </pre>
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-Cache-Control: no-cache
-X-Request-Id: d22e8a69-a218-4f36-9dc8-ea48261d3345
-X-Runtime: 0.009551
+ETag: W/&quot;502d26a24a076e330e8633015e358714&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 5d84c3a8-0bb3-41a2-bd6c-d45f4a55f676
+X-Runtime: 0.009899
 Vary: Origin
-Content-Length: 56</pre>
+Content-Length: 1027</pre>
             <h4>Status</h4>
-            <pre class="response status">404 Not Found</pre>
+            <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;meta&quot;: {
-    &quot;success&quot;: false
+  &quot;id&quot;: 580,
+  &quot;dm_operation_id&quot;: null,
+  &quot;status&quot;: 1,
+  &quot;lab_id&quot;: 764,
+  &quot;created_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
+  &quot;updated_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
+  &quot;account_id&quot;: 1228,
+  &quot;progress&quot;: null,
+  &quot;finished_at&quot;: null,
+  &quot;build_seconds&quot;: null,
+  &quot;destroyed_at&quot;: null,
+  &quot;alive_minutes&quot;: null,
+  &quot;errored_at&quot;: null,
+  &quot;error_message&quot;: null,
+  &quot;uuid&quot;: &quot;274381&quot;,
+  &quot;resources_list&quot;: null,
+  &quot;creator_uuid&quot;: null,
+  &quot;student_login_link&quot;: &quot;https://console.cloud.google.com/home/dashboard?supportedpurview=project&amp;project=star-wars-ep-764-274381&amp;organizationId=413785091449&quot;,
+  &quot;average_start_seconds&quot;: 240,
+  &quot;account&quot;: {
+    &quot;id&quot;: 1228,
+    &quot;email&quot;: &quot;cloud_user_25@linuxGLabs.com&quot;,
+    &quot;uuid&quot;: &quot;30000000000000025&quot;,
+    &quot;in_use&quot;: true,
+    &quot;in_rotation&quot;: true,
+    &quot;last_used&quot;: null,
+    &quot;created_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
+    &quot;updated_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
+    &quot;temp_pw&quot;: null
   },
-  &quot;errors&quot;: &quot;Could not find lab&quot;
+  &quot;lab&quot;: {
+    &quot;id&quot;: 764,
+    &quot;name&quot;: &quot;star-wars-episode-3&quot;,
+    &quot;api_name&quot;: &quot;api-name-3&quot;,
+    &quot;configuration&quot;: &quot;a big yaml file&quot;,
+    &quot;created_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
+    &quot;updated_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
+    &quot;max_run_minutes&quot;: 60,
+    &quot;deleted_at&quot;: null,
+    &quot;average_start_seconds&quot;: 240
+  }
 }</pre>
       </div>
     </div>

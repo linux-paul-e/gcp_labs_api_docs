@@ -108,11 +108,11 @@ table th, table td {
     <div class="container">
       <h1>Labs API</h1>
 
-        <p class="explanation">Create and retrieve state information on lab_instances</p>
+        <p class="explanation">Create and retrieve state information on labs</p>
 
       <div class="article">
-        <h2>Destroy a lab_instance</h2>
-        <h3>DELETE /api/v1/lab_instances/:id</h3>
+        <h2>Get a 404 when lab not found</h2>
+        <h3>GET api/v1/labs/:api_name</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -124,11 +124,11 @@ table th, table td {
             </thead>
             <tbody>
               <tr>
-                <td class="required">
-                    <span class="name">id</span>
+                <td>
+                    <span class="name">api_name</span>
                 </td>
                 <td>
-                  <span class="description">The id of the lab_instance to tear down</span>
+                  <span class="description">The api_name of the lab</span>
                 </td>
               </tr>
             </tbody>
@@ -144,7 +144,7 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /api/v1/lab_instances/601</pre>
+          <pre class="request route highlight">GET api/v1/labs/%3Aapi_name</pre>
 
 
 
@@ -152,33 +152,19 @@ Cookie: </pre>
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;fee09ebdb0b7a377bcb7b3657301b3b8&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 1a9c742b-6493-4f4e-970d-d71637daf17f
-X-Runtime: 0.016079
+Cache-Control: no-cache
+X-Request-Id: 398e2b00-c97d-4068-b8d0-0e642b9adde0
+X-Runtime: 0.005142
 Vary: Origin
-Content-Length: 349</pre>
+Content-Length: 56</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
+            <pre class="response status">404 Not Found</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 601,
-  &quot;dm_operation_id&quot;: null,
-  &quot;status&quot;: 3,
-  &quot;lab_id&quot;: 776,
-  &quot;created_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
-  &quot;updated_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
-  &quot;account_id&quot;: 1249,
-  &quot;progress&quot;: null,
-  &quot;finished_at&quot;: null,
-  &quot;build_seconds&quot;: null,
-  &quot;destroyed_at&quot;: null,
-  &quot;alive_minutes&quot;: null,
-  &quot;errored_at&quot;: null,
-  &quot;error_message&quot;: null,
-  &quot;uuid&quot;: &quot;40e130&quot;,
-  &quot;resources_list&quot;: null,
-  &quot;creator_uuid&quot;: null
+  &quot;meta&quot;: {
+    &quot;success&quot;: false
+  },
+  &quot;errors&quot;: &quot;Could not find lab&quot;
 }</pre>
       </div>
     </div>

@@ -111,8 +111,8 @@ table th, table td {
         <p class="explanation">Create and retrieve state information on lab_instances</p>
 
       <div class="article">
-        <h2>Destroy a lab_instance</h2>
-        <h3>DELETE /api/v1/lab_instances/:id</h3>
+        <h2>Create a lab_instance by lab_id </h2>
+        <h3>POST api/v1/lab_instances</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -125,10 +125,10 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
-                    <span class="name">id</span>
+                    <span class="name">lab_id</span>
                 </td>
                 <td>
-                  <span class="description">The id of the lab_instance to tear down</span>
+                  <span class="description">The parent lab id for this instance</span>
                 </td>
               </tr>
             </tbody>
@@ -144,41 +144,48 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE /api/v1/lab_instances/601</pre>
+          <pre class="request route highlight">POST api/v1/lab_instances</pre>
 
 
+            <h4>Body</h4>
+            <pre class="request body">{"lab_id":"762"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;fee09ebdb0b7a377bcb7b3657301b3b8&quot;
+ETag: W/&quot;5f453320f5780b9c8d5249b126661646&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 1a9c742b-6493-4f4e-970d-d71637daf17f
-X-Runtime: 0.016079
+X-Request-Id: 98d25c2c-5879-4fcc-a39b-322220acd587
+X-Runtime: 0.065000
 Vary: Origin
-Content-Length: 349</pre>
+Content-Length: 390</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 601,
-  &quot;dm_operation_id&quot;: null,
-  &quot;status&quot;: 3,
-  &quot;lab_id&quot;: 776,
-  &quot;created_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
-  &quot;updated_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
-  &quot;account_id&quot;: 1249,
-  &quot;progress&quot;: null,
-  &quot;finished_at&quot;: null,
-  &quot;build_seconds&quot;: null,
-  &quot;destroyed_at&quot;: null,
-  &quot;alive_minutes&quot;: null,
-  &quot;errored_at&quot;: null,
-  &quot;error_message&quot;: null,
-  &quot;uuid&quot;: &quot;40e130&quot;,
-  &quot;resources_list&quot;: null,
-  &quot;creator_uuid&quot;: null
+  &quot;meta&quot;: {
+    &quot;success&quot;: true
+  },
+  &quot;lab_instance&quot;: {
+    &quot;id&quot;: 578,
+    &quot;dm_operation_id&quot;: null,
+    &quot;status&quot;: 1,
+    &quot;lab_id&quot;: 762,
+    &quot;created_at&quot;: &quot;2018-12-28T23:43:59.000Z&quot;,
+    &quot;updated_at&quot;: &quot;2018-12-28T23:43:59.000Z&quot;,
+    &quot;account_id&quot;: 1226,
+    &quot;progress&quot;: null,
+    &quot;finished_at&quot;: null,
+    &quot;build_seconds&quot;: null,
+    &quot;destroyed_at&quot;: null,
+    &quot;alive_minutes&quot;: null,
+    &quot;errored_at&quot;: null,
+    &quot;error_message&quot;: null,
+    &quot;uuid&quot;: &quot;50ca9d&quot;,
+    &quot;resources_list&quot;: null,
+    &quot;creator_uuid&quot;: null
+  }
 }</pre>
       </div>
     </div>

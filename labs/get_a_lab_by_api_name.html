@@ -108,11 +108,11 @@ table th, table td {
     <div class="container">
       <h1>Labs API</h1>
 
-        <p class="explanation">Create and retrieve state information on accounts</p>
+        <p class="explanation">Create and retrieve state information on labs</p>
 
       <div class="article">
-        <h2>Get an account</h2>
-        <h3>GET api/v1/accounts/:id</h3>
+        <h2>Get a lab by api_name</h2>
+        <h3>GET api/v1/labs/:api_name</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -124,11 +124,11 @@ table th, table td {
             </thead>
             <tbody>
               <tr>
-                <td class="required">
-                    <span class="name">id</span>
+                <td>
+                    <span class="name">api_name</span>
                 </td>
                 <td>
-                  <span class="description">The id of the account</span>
+                  <span class="description">The api_name of the lab</span>
                 </td>
               </tr>
             </tbody>
@@ -144,7 +144,7 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET api/v1/accounts/1</pre>
+          <pre class="request route highlight">GET api/v1/labs/api-name-18</pre>
 
 
 
@@ -152,25 +152,25 @@ Cookie: </pre>
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;8151f28c6adbbf6c6f821419d3cbb5c7&quot;
+ETag: W/&quot;0c8fa3d64630c5121d82dbb8e67f58ff&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 43635fe2-7e0c-4f02-87db-8705acfce639
-X-Runtime: 0.021413
+X-Request-Id: d51ed4f8-407d-4874-be43-b21ed589da1a
+X-Runtime: 0.005955
 Vary: Origin
-Content-Length: 218</pre>
+Content-Length: 246</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 1,
-  &quot;email&quot;: &quot;cloud_user_1@linuxGLabs.com&quot;,
-  &quot;uuid&quot;: &quot;3000000000000001&quot;,
-  &quot;in_use&quot;: false,
-  &quot;in_rotation&quot;: true,
-  &quot;last_used&quot;: null,
-  &quot;created_at&quot;: &quot;2018-12-28T15:51:34.000Z&quot;,
-  &quot;updated_at&quot;: &quot;2018-12-28T15:51:34.000Z&quot;,
-  &quot;temp_pw&quot;: null
+  &quot;id&quot;: 780,
+  &quot;name&quot;: &quot;star-wars-episode-18&quot;,
+  &quot;api_name&quot;: &quot;api-name-18&quot;,
+  &quot;configuration&quot;: &quot;a big yaml file&quot;,
+  &quot;created_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
+  &quot;updated_at&quot;: &quot;2018-12-28T23:44:00.000Z&quot;,
+  &quot;max_run_minutes&quot;: 60,
+  &quot;deleted_at&quot;: null,
+  &quot;average_start_seconds&quot;: 240
 }</pre>
       </div>
     </div>
