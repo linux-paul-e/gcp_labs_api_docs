@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Labs API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Labs API</h1>
+
+        <p class="explanation">Create and retrieve state information on labs</p>
+
+      <div class="article">
+        <h2>List a page of 5 labs</h2>
+        <h3>GET /api/v1/labs</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <span class="name">page</span>
+                </td>
+                <td>
+                  <span class="description">Which pagination page (default 1)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">per_page</span>
+                </td>
+                <td>
+                  <span class="description">How many items per page (default 30)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">sort_by</span>
+                </td>
+                <td>
+                  <span class="description">Sort by choice. Options are id, name, api_name, created_at, updated_at, and max_run_minutes</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">direction</span>
+                </td>
+                <td>
+                  <span class="description">Sort direction. Options are asc or desc</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">created_before</span>
+                </td>
+                <td>
+                  <span class="description">Filter by lab instances created before this time</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">created_after</span>
+                </td>
+                <td>
+                  <span class="description">Filter by lab instances created after this time</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">search</span>
+                </td>
+                <td>
+                  <span class="description">Filter by matching name or api_name, will return partial matches.</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Accept: application/json
+Content-Type: application/json
+Host: example.org
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /api/v1/labs?page=1&amp;per_page=5&amp;sort_by=name&amp;direction=desc</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">page: 1
+per_page: 5
+sort_by: name
+direction: desc</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;5d39f44b8d0d7484aae8012c9a08c4a3&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: ee70d2b7-182f-4ca1-b6f9-967717550b3c
+X-Runtime: 0.006862
+Vary: Origin
+Content-Length: 1275</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;meta&quot;: {
+    &quot;success&quot;: true,
+    &quot;count&quot;: 10
+  },
+  &quot;labs&quot;: [
+    {
+      &quot;id&quot;: 27,
+      &quot;name&quot;: &quot;star-wars-episode-26&quot;,
+      &quot;api_name&quot;: &quot;api-name-26&quot;,
+      &quot;configuration&quot;: &quot;a big yaml file&quot;,
+      &quot;created_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;updated_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;max_run_minutes&quot;: 60,
+      &quot;deleted_at&quot;: null,
+      &quot;average_start_seconds&quot;: 240
+    },
+    {
+      &quot;id&quot;: 26,
+      &quot;name&quot;: &quot;star-wars-episode-25&quot;,
+      &quot;api_name&quot;: &quot;api-name-25&quot;,
+      &quot;configuration&quot;: &quot;a big yaml file&quot;,
+      &quot;created_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;updated_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;max_run_minutes&quot;: 60,
+      &quot;deleted_at&quot;: null,
+      &quot;average_start_seconds&quot;: 240
+    },
+    {
+      &quot;id&quot;: 25,
+      &quot;name&quot;: &quot;star-wars-episode-24&quot;,
+      &quot;api_name&quot;: &quot;api-name-24&quot;,
+      &quot;configuration&quot;: &quot;a big yaml file&quot;,
+      &quot;created_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;updated_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;max_run_minutes&quot;: 60,
+      &quot;deleted_at&quot;: null,
+      &quot;average_start_seconds&quot;: 240
+    },
+    {
+      &quot;id&quot;: 24,
+      &quot;name&quot;: &quot;star-wars-episode-23&quot;,
+      &quot;api_name&quot;: &quot;api-name-23&quot;,
+      &quot;configuration&quot;: &quot;a big yaml file&quot;,
+      &quot;created_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;updated_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;max_run_minutes&quot;: 60,
+      &quot;deleted_at&quot;: null,
+      &quot;average_start_seconds&quot;: 240
+    },
+    {
+      &quot;id&quot;: 23,
+      &quot;name&quot;: &quot;star-wars-episode-22&quot;,
+      &quot;api_name&quot;: &quot;api-name-22&quot;,
+      &quot;configuration&quot;: &quot;a big yaml file&quot;,
+      &quot;created_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;updated_at&quot;: &quot;2018-12-28T15:51:35.000Z&quot;,
+      &quot;max_run_minutes&quot;: 60,
+      &quot;deleted_at&quot;: null,
+      &quot;average_start_seconds&quot;: 240
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>
